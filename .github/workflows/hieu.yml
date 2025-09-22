@@ -30,4 +30,6 @@ jobs:
           touch ~/.ssh/id_rsa
           echo "$ssh_key" >> ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh -i ~/.ssh/id_rsa hieu@34.143.236.100 sh -c 'pwd;ls -a'
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh -i  ~/.ssh/id_rsa hieu@34.143.236.100 sh -c 'pwd;ls -a' 
+          #ssh -o StrictHostkeyChecking=no ssh -o StrictHostkeyChecking=no -i -i  ~/.ssh/id_rsa hieu@34.143.236.100 sh -c 'pwd;ls -a'
